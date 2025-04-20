@@ -14,25 +14,25 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1586325194227-7625ed95172b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     title: "Premium Kitchenware Collection",
-    subtitle: "Elevate your cooking experience with our quality products",
+    subtitle: "Elevate your cooking with quality products starting from KES 1,500",
     cta: "Shop Now",
     link: "/shop"
   },
   {
-    image: "https://images.unsplash.com/photo-1590794056499-4440659fee58?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
-    title: "Enhance Your Kitchen",
-    subtitle: "Discover tools that make cooking a delight",
-    cta: "Explore",
-    link: "/shop"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1588854337115-1c67d9247e4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1583225214464-9055560f8165?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
     title: "Nationwide Shipping",
-    subtitle: "Quality kitchenware delivered to your doorstep",
+    subtitle: "We deliver your kitchenware anywhere in Kenya within 3-5 days",
     cta: "Get a Quote",
     link: "/contact"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1613929905911-96040dea19b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    title: "Cook Like a Pro",
+    subtitle: "Discover our expert-selected kitchen tools and cookware",
+    cta: "Explore",
+    link: "/shop"
   }
 ];
 

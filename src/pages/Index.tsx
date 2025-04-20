@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck as TruckIcon, ShieldCheck, Headset } from 'lucide-react';
+import { ArrowRight, Truck as TruckIcon, ShieldCheck, Headset, Package, BadgeCheck, Clock, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -24,11 +24,97 @@ const Index = () => {
         {/* Hero Carousel */}
         <HeroCarousel />
 
+        {/* Dual Business Highlight */}
+        <section className="py-16 bg-gradient-to-r from-[#2A5D3B]/10 to-[#F0F0F0]">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4 inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                Two Businesses, One Solution
+              </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Lily Suppliers combines premium kitchenware retail with reliable nationwide shipping services, giving you the best of both worlds.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* E-commerce Side */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border border-primary/10">
+                <div className="flex justify-center mb-6">
+                  <div className="bg-primary/10 p-4 rounded-full">
+                    <Package className="h-12 w-12 text-primary" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-montserrat font-bold text-center mb-4 text-charcoal">Premium Kitchenware</h3>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <BadgeCheck className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">Curated selection of high-quality kitchenware</p>
+                  </li>
+                  <li className="flex items-start">
+                    <BadgeCheck className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">International and local brands at competitive prices</p>
+                  </li>
+                  <li className="flex items-start">
+                    <BadgeCheck className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">Expert-selected products for your kitchen needs</p>
+                  </li>
+                  <li className="flex items-start">
+                    <BadgeCheck className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">One-year warranty on all products</p>
+                  </li>
+                </ul>
+                <div className="text-center">
+                  <Link to="/shop">
+                    <Button className="bg-primary hover:bg-primary/90 text-white">
+                      Shop Now <ArrowRight size={16} className="ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Shipping Side */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl border border-primary/10">
+                <div className="flex justify-center mb-6">
+                  <div className="bg-primary/10 p-4 rounded-full">
+                    <TruckIcon className="h-12 w-12 text-primary" />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-montserrat font-bold text-center mb-4 text-charcoal">Nationwide Shipping</h3>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start">
+                    <Clock className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">Fast delivery within 3-5 business days nationwide</p>
+                  </li>
+                  <li className="flex items-start">
+                    <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">Serving all 47 counties across Kenya</p>
+                  </li>
+                  <li className="flex items-start">
+                    <ShieldCheck className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">Secure packaging to ensure safe arrival</p>
+                  </li>
+                  <li className="flex items-start">
+                    <BadgeCheck className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-1" />
+                    <p className="text-gray-600">Real-time tracking of your shipment</p>
+                  </li>
+                </ul>
+                <div className="text-center">
+                  <Link to="/contact">
+                    <Button className="bg-gradient-to-r from-primary to-teal-600 hover:from-primary/90 hover:to-teal-700 text-white">
+                      Get a Shipping Quote <ArrowRight size={16} className="ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Featured Categories */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4">
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4 inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 Shop by Category
               </h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
@@ -37,13 +123,14 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredCategories.map((category) => (
+              {featuredCategories.map((category, index) => (
                 <CategoryCard
                   key={category.id}
                   title={category.name}
                   image={category.image}
                   link={`/shop/category/${category.id}`}
                   count={category.count}
+                  isShipping={index === 3} // Add shipping badge to the last category
                 />
               ))}
             </div>
@@ -62,7 +149,7 @@ const Index = () => {
         <section className="py-16 bg-secondary">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4">
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4 inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 Featured Products
               </h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
@@ -98,7 +185,7 @@ const Index = () => {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4">
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4 inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 Why Lily Suppliers?
               </h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
@@ -109,9 +196,9 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="order-2 lg:order-1">
                 <img 
-                  src="https://images.unsplash.com/photo-1542728928-1413d1894ed1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
+                  src="https://images.unsplash.com/photo-1597233886683-94db5126984a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
                   alt="Our warehouse" 
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto rounded-2xl shadow-lg"
                 />
               </div>
               
@@ -174,7 +261,7 @@ const Index = () => {
         <section className="py-16 bg-secondary">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4">
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-charcoal mb-4 inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
                 Latest Arrivals
               </h2>
               <p className="text-gray-600 max-w-3xl mx-auto">
@@ -267,7 +354,7 @@ const Index = () => {
         </section>
 
         {/* Newsletter */}
-        <section className="py-16 bg-primary text-white">
+        <section className="py-16 bg-gradient-to-r from-primary to-teal-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-montserrat font-bold mb-4">
@@ -280,10 +367,10 @@ const Index = () => {
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="flex-grow px-4 py-3 rounded-md text-charcoal focus:outline-none focus:ring-2 focus:ring-white"
+                  className="flex-grow px-4 py-3 rounded-full text-charcoal focus:outline-none focus:ring-2 focus:ring-white"
                   required
                 />
-                <Button className="bg-white text-primary hover:bg-white/90 px-6 py-3 rounded-md font-montserrat font-semibold">
+                <Button className="bg-white text-primary hover:bg-white/90 px-6 py-3 rounded-full font-montserrat font-semibold">
                   Subscribe
                 </Button>
               </form>

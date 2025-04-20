@@ -26,8 +26,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   isNew = false,
   className,
 }) => {
+  // Convert price to KES (multiply by 130 as approximate conversion rate)
+  const kesPrice = Math.round(price * 130);
+  const kesOriginalPrice = originalPrice ? Math.round(originalPrice * 130) : undefined;
+  
   return (
-    <div className={cn("bg-white rounded-lg overflow-hidden shadow-md product-card-hover", className)}>
+    <div className={cn("bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300", className)}>
       <div className="relative">
         <Link to={`/product/${id}`}>
           <img 
@@ -37,16 +41,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
           />
         </Link>
         {isNew && (
-          <span className="absolute top-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded">
-            New Arrival
+          <span className="absolute top-2 left-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            New
           </span>
         )}
         {originalPrice && (
-          <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
+          <span className="absolute top-2 right-14 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
             Save {Math.round((1 - price / originalPrice) * 100)}%
           </span>
         )}
-        <button className="absolute top-2 right-2 bg-white p-1.5 rounded-full shadow-md hover:bg-gray-100 transition-colors">
+        <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors">
           <Heart size={18} className="text-gray-600 hover:text-red-500 transition-colors" />
         </button>
       </div>
@@ -72,16 +76,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <span className="font-montserrat font-bold text-lg text-charcoal">
-              ${price.toFixed(2)}
+              KES {kesPrice.toLocaleString()}
             </span>
-            {originalPrice && (
+            {kesOriginalPrice && (
               <span className="text-gray-500 text-sm line-through ml-2">
-                ${originalPrice.toFixed(2)}
+                KES {kesOriginalPrice.toLocaleString()}
               </span>
             )}
           </div>
           
-          <Button variant="outline" size="icon" className="rounded-full text-primary border-primary hover:bg-primary hover:text-white transition-colors">
+          <Button variant="outline" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors">
             <ShoppingCart size={18} />
           </Button>
         </div>

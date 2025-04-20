@@ -22,24 +22,34 @@ const TestimonialSlider: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Update testimonial images to feature Black people
+  const updatedTestimonials = testimonials.map(testimonial => ({
+    ...testimonial,
+    image: testimonial.id === 1 ? 
+      "https://images.unsplash.com/photo-1531384441138-2736e62e0919?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" :
+      testimonial.id === 2 ?
+      "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80" :
+      "https://images.unsplash.com/photo-1539701938214-0d9736e1c16b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+  }));
+
   return (
-    <div className="relative py-12 px-4 bg-secondary">
+    <div className="relative py-12 px-4 bg-gradient-to-r from-[#F0F0F0] to-[#F8F8F8]">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-center mb-10 text-charcoal">
+        <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-center mb-10 text-charcoal inline-block bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
           What Our Customers Say
         </h2>
         
         <div className="relative">
-          {testimonials.map((testimonial, index) => (
+          {updatedTestimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
               className={`transition-opacity duration-700 ${
                 index === currentTestimonial ? 'opacity-100' : 'opacity-0 absolute inset-0'
               }`}
             >
-              <div className="bg-white p-6 md:p-8 rounded-lg shadow-md">
+              <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-primary/5">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 mb-6 rounded-full overflow-hidden">
+                  <div className="w-20 h-20 mb-6 rounded-full overflow-hidden ring-4 ring-primary/20">
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.name}
@@ -73,12 +83,12 @@ const TestimonialSlider: React.FC = () => {
         </div>
         
         <div className="flex justify-center mt-6 space-x-2">
-          {testimonials.map((_, index) => (
+          {updatedTestimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentTestimonial(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentTestimonial ? 'bg-primary' : 'bg-gray-300'
+                index === currentTestimonial ? 'bg-gradient-to-r from-primary to-purple-600' : 'bg-gray-300'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
