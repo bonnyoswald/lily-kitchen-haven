@@ -1,23 +1,23 @@
 
 import React from 'react';
-import { Truck as TruckIcon, ShieldCheck, PercentCircle, Headset } from 'lucide-react';
+import { Truck as TruckIcon, ShieldCheck, PercentCircle, Headset, Globe } from 'lucide-react';
 
 const FeaturesSection: React.FC = () => {
   const features = [
     {
       icon: <TruckIcon className="h-10 w-10 text-primary" />,
-      title: 'Free Shipping',
-      description: 'Free nationwide shipping on orders over KES 15,000'
+      title: 'Local Shipping',
+      description: 'Reliable delivery across all 47 counties in Kenya'
+    },
+    {
+      icon: <Globe className="h-10 w-10 text-primary" />,
+      title: 'International Sourcing',
+      description: 'We source premium products from global suppliers'
     },
     {
       icon: <ShieldCheck className="h-10 w-10 text-primary" />,
       title: 'Quality Guarantee',
       description: 'All products backed by our quality promise'
-    },
-    {
-      icon: <PercentCircle className="h-10 w-10 text-primary" />,
-      title: 'Special Discounts',
-      description: 'Member-exclusive offers and bulk discounts'
     },
     {
       icon: <Headset className="h-10 w-10 text-primary" />,
