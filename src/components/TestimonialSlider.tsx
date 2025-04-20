@@ -63,7 +63,7 @@ const TestimonialSlider: React.FC = () => {
                         key={i}
                         size={20}
                         className={`${
-                          i < parseInt(testimonial.rating.toString()) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
+                          i < Number(testimonial.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
                         }`}
                       />
                     ))}
