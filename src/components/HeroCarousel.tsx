@@ -14,7 +14,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "https://unsplash.com/photos/brown-wooden-shelf-CX8ooha2yLA", // Wooden shelf image as new first slide
+    image: "https://unsplash.com/photos/brown-wooden-shelf-CX8ooha2yLA",
     title: "Premium Kitchenware Collection",
     subtitle: "Elevate your cooking with quality products starting from KES 1,500",
     cta: "Shop Now",
@@ -120,3 +120,4 @@ const HeroCarousel: React.FC = () => {
 };
 
 export default HeroCarousel;
+
