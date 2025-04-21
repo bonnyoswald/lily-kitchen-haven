@@ -1,10 +1,7 @@
 
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface Testimonial {
   id: number;
@@ -50,42 +47,19 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const slidesToShow = 3;
+
 const TestimonialSlider: React.FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const maxIndex = testimonials.length - slidesToShow;
+
+  const prev = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
+
+  const next = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   return (
@@ -99,40 +73,63 @@ const TestimonialSlider: React.FC = () => {
             Read testimonials from our satisfied customers who have experienced the quality and reliability of Lily Suppliers.
           </p>
         </div>
-        
-        <Slider {...settings}>
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="p-4">
-              <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6">
-                <div className="flex items-center mb-4">
-                  <Avatar className="mr-4 h-12 w-12">
-                    <AvatarImage src={testimonial.image} alt={testimonial.name} />
-                    <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">{testimonial.name}</h3>
-                    <p className="text-gray-500 text-sm">{testimonial.title}</p>
+
+        {/* Slider container */}
+        <div className="relative">
+          <button
+            aria-label="Previous testimonials"
+            onClick={prev}
+            className="absolute top-1/2 -left-6 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow hover:bg-gray-100 transition"
+          >
+            <ArrowLeft size={20} />
+          </button>
+
+          <div className="flex overflow-hidden">
+            <div
+              className="flex transition-transform duration-500"
+              style={{ transform: `translateX(-${(100 / slidesToShow) * currentIndex}%)`, width: `${(testimonials.length * 100) / slidesToShow}%` }}
+            >
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className={`p-4 flex-shrink-0 w-[calc(100%/${slidesToShow})]`}>
+                  <div className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 p-6 h-full flex flex-col">
+                    <div className="flex items-center mb-4">
+                      <Avatar className="mr-4 h-12 w-12 shrink-0">
+                        <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h3 className="font-montserrat font-semibold text-lg text-charcoal">{testimonial.name}</h3>
+                        <p className="text-gray-500 text-sm">{testimonial.title}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center mb-2">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <Star
+                          key={index}
+                          size={16}
+                          className={index < Math.round(testimonial.rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 flex-grow">{testimonial.testimonial}</p>
                   </div>
                 </div>
-                <div className="flex items-center mb-2">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star
-                      key={index}
-                      size={16}
-                      className={index < Math.round(testimonial.rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700">
-                  {testimonial.testimonial}
-                </p>
-              </div>
+              ))}
             </div>
-          ))}
-        </Slider>
+          </div>
+
+          <button
+            aria-label="Next testimonials"
+            onClick={next}
+            className="absolute top-1/2 -right-6 z-10 -translate-y-1/2 rounded-full bg-white p-2 shadow hover:bg-gray-100 transition"
+          >
+            <ArrowRight size={20} />
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
 export default TestimonialSlider;
+
