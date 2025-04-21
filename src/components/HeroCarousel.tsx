@@ -14,7 +14,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "https://images.unsplash.com/photo-1590311824865-c8b13c86a0bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://unsplash.com/photos/brown-wooden-shelf-CX8ooha2yLA", // Wooden shelf image as new first slide
     title: "Premium Kitchenware Collection",
     subtitle: "Elevate your cooking with quality products starting from KES 1,500",
     cta: "Shop Now",

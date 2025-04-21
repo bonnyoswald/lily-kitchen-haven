@@ -1,4 +1,3 @@
-
 // Mock data for the e-commerce website
 
 export interface Product {
@@ -59,9 +58,9 @@ export const products: Product[] = [
     description: 'High-carbon stainless steel chef\'s knife with ergonomic handle for comfortable grip. Perfect for chopping, slicing, and dicing with precision.',
     price: 89.99,
     originalPrice: 119.99,
-    image: 'https://images.unsplash.com/photo-1593618998160-854542246d77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80',
+    image: 'https://images.unsplash.com/photos/silver-and-black-knife-on-silver-table-Dz9aN44nDsA',
     images: [
-      'https://images.unsplash.com/photo-1593618998160-854542246d77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80',
+      'https://images.unsplash.com/photos/silver-and-black-knife-on-silver-table-Dz9aN44nDsA',
       'https://images.unsplash.com/photo-1566454825481-43caac51a266?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1602774895247-a574a2ae5e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
@@ -84,9 +83,9 @@ export const products: Product[] = [
     description: 'Set of 3 non-stick frying pans in different sizes. Features a durable ceramic coating and heat-resistant handles for safe cooking.',
     price: 79.99,
     originalPrice: 99.99,
-    image: 'https://images.unsplash.com/photo-1584947897558-4dae5f3e00a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    image: 'https://www.istockphoto.com/photo/black-pan-with-non-stick-coating-and-plastic-handle-in-different-positions-3d-gm1621677892-531762790',
     images: [
-      'https://images.unsplash.com/photo-1584947897558-4dae5f3e00a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+      'https://www.istockphoto.com/photo/black-pan-with-non-stick-coating-and-plastic-handle-in-different-positions-3d-gm1621677892-531762790',
       'https://images.unsplash.com/photo-1590794056467-1c7170e543ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
@@ -108,9 +107,9 @@ export const products: Product[] = [
     name: 'Stainless Steel Food Storage Containers',
     description: 'Set of 5 airtight stainless steel food storage containers. Perfect for meal prep and storing leftovers.',
     price: 34.99,
-    image: 'https://images.unsplash.com/photo-1600857544200-b2f468e9b2b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    image: 'https://unsplash.com/photos/red-and-silver-steel-cooking-pots-V_o1_Hz1Ysw',
     images: [
-      'https://images.unsplash.com/photo-1600857544200-b2f468e9b2b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+      'https://unsplash.com/photos/red-and-silver-steel-cooking-pots-V_o1_Hz1Ysw',
       'https://images.unsplash.com/photo-1585515320310-259814833e62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1583947582886-f40ec95cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
@@ -133,9 +132,9 @@ export const products: Product[] = [
     description: 'Powerful stand mixer with 10 speed settings and multiple attachments for various cooking tasks.',
     price: 249.99,
     originalPrice: 299.99,
-    image: 'https://images.unsplash.com/photo-1578598336003-35375e5f4a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    image: 'https://www.istockphoto.com/photo/purple-stand-kitchen-mixer-isolated-on-white-background-gm2206488808-623800801',
     images: [
-      'https://images.unsplash.com/photo-1578598336003-35375e5f4a1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+      'https://www.istockphoto.com/photo/purple-stand-kitchen-mixer-isolated-on-white-background-gm2206488808-623800801',
       'https://images.unsplash.com/photo-1591224227071-5cfada8aaf43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1617622142633-21db7718010e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
@@ -157,9 +156,9 @@ export const products: Product[] = [
     name: 'Ceramic Dinner Set',
     description: 'Beautiful 24-piece ceramic dinner set including plates, bowls, and mugs. Elegant design suitable for any table setting.',
     price: 129.99,
-    image: 'https://images.unsplash.com/photo-1617504721904-d401bcbec1ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80',
+    image: 'https://www.istockphoto.com/photo/plates-variation-gm910468040-250738706',
     images: [
-      'https://images.unsplash.com/photo-1617504721904-d401bcbec1ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80',
+      'https://www.istockphoto.com/photo/plates-variation-gm910468040-250738706',
       'https://images.unsplash.com/photo-1605826832916-d0a401da2a40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1590794056467-1c7170e543ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
@@ -181,9 +180,9 @@ export const products: Product[] = [
     name: 'Wooden Cutting Board Set',
     description: 'Set of 3 wooden cutting boards in different sizes. Made from sustainable acacia wood with juice grooves and handles.',
     price: 49.99,
-    image: 'https://images.unsplash.com/photo-1581312474544-ed55114cbcc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    image: 'https://unsplash.com/photos/brown-wooden-chopping-board-on-white-background-P4IqT4BHp5g',
     images: [
-      'https://images.unsplash.com/photo-1581312474544-ed55114cbcc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+      'https://unsplash.com/photos/brown-wooden-chopping-board-on-white-background-P4IqT4BHp5g',
       'https://images.unsplash.com/photo-1590794058222-39922153e4cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1593618980870-f68d149fac60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
@@ -205,9 +204,9 @@ export const products: Product[] = [
     description: 'Heat-resistant silicone kitchen utensil set with stainless steel handles. Includes spatula, spoon, ladle, and more.',
     price: 29.99,
     originalPrice: 39.99,
-    image: 'https://images.unsplash.com/photo-1590794058210-2656d64a688d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+    image: 'https://www.istockphoto.com/photo/set-of-different-kitchen-utensils-on-white-table-against-pink-wooden-background-gm1908307586-554641167',
     images: [
-      'https://images.unsplash.com/photo-1590794058210-2656d64a688d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+      'https://www.istockphoto.com/photo/set-of-different-kitchen-utensils-on-white-table-against-pink-wooden-background-gm1908307586-554641167',
       'https://images.unsplash.com/photo-1584269857337-2925e2d8091d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
       'https://images.unsplash.com/photo-1591223992056-61658e7839c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80'
     ],
