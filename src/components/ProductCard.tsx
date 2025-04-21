@@ -33,7 +33,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className={cn("bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300", className)}>
       <div className="relative">
-        <Link to={`/product/${id}`}>
+        {/* Changed from product page to contact page */}
+        <Link to="/contact">
           <img 
             src={image} 
             alt={name} 
@@ -56,7 +57,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
       
       <div className="p-4">
-        <Link to={`/product/${id}`} className="block">
+        {/* Changed from product page to contact page */}
+        <Link to="/contact" className="block">
           <h3 className="font-montserrat font-medium text-lg text-charcoal hover:text-primary transition-colors mb-1 line-clamp-2">
             {name}
           </h3>
@@ -85,9 +87,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
             )}
           </div>
           
-          <Button variant="outline" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors">
-            <ShoppingCart size={18} />
-          </Button>
+          {/* Direct to contact page instead */}
+          <Link to="/contact">
+            <Button variant="outline" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors">
+              <ShoppingCart size={18} />
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

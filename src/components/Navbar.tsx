@@ -7,7 +7,8 @@ import {
   User, 
   Heart, 
   Menu, 
-  X 
+  X,
+  Globe
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -54,11 +55,18 @@ const Navbar = () => {
             <Link to="/shop" className="font-montserrat text-charcoal hover:text-primary transition-colors">
               Shop
             </Link>
+            <Link to="/services" className="font-montserrat text-charcoal hover:text-primary transition-colors flex items-center">
+              <Globe size={16} className="mr-1" />
+              Services
+            </Link>
             <Link to="/about" className="font-montserrat text-charcoal hover:text-primary transition-colors">
               About
             </Link>
             <Link to="/contact" className="font-montserrat text-charcoal hover:text-primary transition-colors">
               Contact
+            </Link>
+            <Link to="/admin" className="font-montserrat text-charcoal hover:text-primary transition-colors">
+              Admin
             </Link>
           </nav>
 
@@ -112,11 +120,18 @@ const Navbar = () => {
               <Link to="/shop" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
                 Shop
               </Link>
+              <Link to="/services" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md flex items-center">
+                <Globe size={16} className="mr-1" />
+                Services
+              </Link>
               <Link to="/about" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
                 About
               </Link>
               <Link to="/contact" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
                 Contact
+              </Link>
+              <Link to="/admin" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
+                Admin
               </Link>
               <Link to="/wishlist" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md sm:hidden">
                 Wishlist

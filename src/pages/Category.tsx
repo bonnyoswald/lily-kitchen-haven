@@ -8,7 +8,8 @@ import ProductCard from '@/components/ProductCard';
 
 const Category = () => {
   const { id } = useParams();
-  const categoryProducts = products.filter(product => product.categoryId === id);
+  // Fix: use 'category' instead of 'categoryId'
+  const categoryProducts = products.filter(product => product.category === id);
 
   return (
     <div className="min-h-screen flex flex-col">
