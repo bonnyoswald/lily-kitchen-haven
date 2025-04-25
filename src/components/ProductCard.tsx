@@ -33,12 +33,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className={cn("bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300", className)}>
       <div className="relative">
-        {/* Changed from product page to contact page */}
-        <Link to="/contact">
+        <Link to={`/shop/${id}`}>
           <img 
             src={image} 
             alt={name} 
             className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "https://images.unsplash.com/photo-1590794058231-d548fb6f7913?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80";
+            }}
           />
         </Link>
         {isNew && (
@@ -57,8 +60,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
       
       <div className="p-4">
-        {/* Changed from product page to contact page */}
-        <Link to="/contact" className="block">
+        <Link to={`/shop/${id}`} className="block">
           <h3 className="font-montserrat font-medium text-lg text-charcoal hover:text-primary transition-colors mb-1 line-clamp-2">
             {name}
           </h3>
@@ -87,8 +89,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             )}
           </div>
           
-          {/* Direct to contact page instead */}
-          <Link to="/contact">
+          <Link to={`/shop/${id}`}>
             <Button variant="outline" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors">
               <ShoppingCart size={18} />
             </Button>

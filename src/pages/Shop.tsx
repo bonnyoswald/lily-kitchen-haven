@@ -38,6 +38,7 @@ const Shop = () => {
                 originalPrice={product.originalPrice}
                 image={product.image}
                 rating={product.rating}
+                isNew={product.isNew}
               />
             ))}
           </div>
