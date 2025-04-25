@@ -65,9 +65,6 @@ const Navbar = () => {
             <Link to="/contact" className="font-montserrat text-charcoal hover:text-primary transition-colors">
               Contact
             </Link>
-            <Link to="/admin" className="font-montserrat text-charcoal hover:text-primary transition-colors">
-              Admin
-            </Link>
           </nav>
 
           {/* Icons on the right */}
@@ -129,9 +126,6 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
                 Contact
-              </Link>
-              <Link to="/admin" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
-                Admin
               </Link>
               <Link to="/wishlist" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md sm:hidden">
                 Wishlist

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useToast } from '@/components/ui/use-toast';
 
 interface ProductCardProps {
   id: string;
@@ -29,6 +30,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
   // Convert price to KES (multiply by 130 as approximate conversion rate)
   const kesPrice = Math.round(price * 130);
   const kesOriginalPrice = originalPrice ? Math.round(originalPrice * 130) : undefined;
+  const { toast } = useToast();
+  
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    toast({
+      title: "Product Added",
+      description: `${name} has been added to your showcase collection.`,
+      duration: 3000,
+    });
+  };
   
   return (
     <div className={cn("bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300", className)}>
@@ -89,11 +102,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
             )}
           </div>
           
-          <Link to={`/shop/${id}`}>
-            <Button variant="outline" size="icon" className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors">
-              <ShoppingCart size={18} />
-            </Button>
-          </Link>
+          <Button 
+            onClick={handleAddToCart}
+            variant="outline" 
+            size="icon" 
+            className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors"
+          >
+            <ShoppingCart size={18} />
+          </Button>
         </div>
       </div>
     </div>
