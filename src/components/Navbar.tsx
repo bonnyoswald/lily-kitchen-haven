@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { 
   ShoppingCart, 
   Search, 
-  User, 
-  Heart, 
   Menu, 
   X,
   Globe
@@ -72,12 +70,6 @@ const Navbar = () => {
             <button onClick={toggleSearch} className="text-charcoal hover:text-primary transition-colors">
               <Search size={20} />
             </button>
-            <Link to="/wishlist" className="text-charcoal hover:text-primary transition-colors hidden sm:block">
-              <Heart size={20} />
-            </Link>
-            <Link to="/account" className="text-charcoal hover:text-primary transition-colors hidden sm:block">
-              <User size={20} />
-            </Link>
             <Link to="/cart" className="text-charcoal hover:text-primary transition-colors relative">
               <ShoppingCart size={20} />
               <span className="absolute -top-1 -right-1 bg-primary text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
@@ -126,12 +118,6 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md">
                 Contact
-              </Link>
-              <Link to="/wishlist" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md sm:hidden">
-                Wishlist
-              </Link>
-              <Link to="/account" className="font-montserrat text-charcoal hover:text-primary transition-colors p-2 hover:bg-gray-100 rounded-md sm:hidden">
-                My Account
               </Link>
             </nav>
           </div>
