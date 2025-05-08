@@ -27,9 +27,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   isNew = false,
   className,
 }) => {
-  // Convert price to KES (multiply by 130 as approximate conversion rate)
-  const kesPrice = Math.round(price * 130);
-  const kesOriginalPrice = originalPrice ? Math.round(originalPrice * 130) : undefined;
+  // Convert price to KES (multiply by 85 as reduced conversion rate)
+  const kesPrice = Math.round(price * 85);
+  const kesOriginalPrice = originalPrice ? Math.round(originalPrice * 85) : undefined;
   const { toast } = useToast();
   
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -37,8 +37,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     e.stopPropagation();
     
     toast({
-      title: "Product Added",
-      description: `${name} has been added to your showcase collection.`,
+      title: "Item Added",
+      description: `${name} has been added to your collection.`,
       duration: 3000,
     });
   };
@@ -53,7 +53,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <img 
             src={image} 
             alt={name} 
-            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+            className="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = fallbackImage;
@@ -62,12 +62,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
           />
         </Link>
         {isNew && (
-          <span className="absolute top-2 left-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+          <span className="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">
             New
           </span>
         )}
         {originalPrice && (
-          <span className="absolute top-2 right-2 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+          <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
             Save {Math.round((1 - price / originalPrice) * 100)}%
           </span>
         )}
@@ -75,7 +75,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       
       <div className="p-3">
         <Link to={`/shop/${id}`} className="block">
-          <h3 className="font-montserrat font-medium text-base text-charcoal hover:text-primary transition-colors mb-1 line-clamp-2">
+          <h3 className="font-medium text-sm text-charcoal hover:text-primary transition-colors mb-1 line-clamp-2">
             {name}
           </h3>
         </Link>
@@ -84,7 +84,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           {Array.from({ length: 5 }).map((_, index) => (
             <Star
               key={index}
-              size={14}
+              size={12}
               className={index < Math.round(rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
             />
           ))}
@@ -93,7 +93,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         
         <div className="flex items-center justify-between">
           <div>
-            <span className="font-montserrat font-bold text-base text-charcoal">
+            <span className="font-bold text-sm text-charcoal">
               KES {kesPrice.toLocaleString()}
             </span>
             {kesOriginalPrice && (
@@ -107,9 +107,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
             onClick={handleAddToCart}
             variant="outline" 
             size="sm"
-            className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors"
+            className="rounded-full bg-primary text-white hover:bg-primary/80 border-none transition-colors p-1 h-7 w-7"
           >
-            <ShoppingCart size={16} />
+            <ShoppingCart size={14} />
           </Button>
         </div>
       </div>

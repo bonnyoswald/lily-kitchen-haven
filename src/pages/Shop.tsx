@@ -21,30 +21,30 @@ const Shop = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-3">
-            <h1 className="text-2xl font-montserrat font-bold text-charcoal">
-              Product Showcase
+      <main className="flex-grow py-6">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-3">
+            <h1 className="text-xl font-bold text-charcoal">
+              Product Display
             </h1>
             <div className="relative w-full md:w-auto">
               <input
                 type="text"
-                placeholder="Find products..."
+                placeholder="Search items..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full md:w-60 p-1.5 pl-8 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary text-sm"
+                className="w-full md:w-56 p-1.5 pl-8 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary text-sm"
               />
               <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
             </div>
           </div>
 
-          <p className="text-gray-600 mb-5 text-sm">
-            Browse our curated collection of premium kitchen essentials. All items are for display purposes only.
+          <p className="text-gray-600 mb-4 text-sm">
+            Browse our selection of premium kitchen items for display purposes.
           </p>
 
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {filteredProducts.map((product) => (
                 <ProductCard
                   key={product.id}
@@ -59,9 +59,9 @@ const Shop = () => {
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <h2 className="text-xl font-montserrat text-charcoal mb-2">No products found</h2>
-              <p className="text-gray-500 mb-4 text-sm">We couldn't find any products matching your search.</p>
+            <div className="text-center py-8 bg-gray-50 rounded-lg">
+              <h2 className="text-lg font-medium text-charcoal mb-2">No items found</h2>
+              <p className="text-gray-500 mb-4 text-sm">We couldn't find any items matching your search.</p>
               <Button 
                 onClick={() => setSearchTerm('')}
                 size="sm"
