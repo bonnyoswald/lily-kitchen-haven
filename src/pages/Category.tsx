@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,6 +10,9 @@ import { ArrowLeft } from 'lucide-react';
 const Category = () => {
   const { id } = useParams();
   const categoryProducts = products.filter(product => product.category === id);
+  
+  // Determine if we're in the utensils category to customize the heading
+  const isUtensils = id === 'utensils';
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -23,13 +26,16 @@ const Category = () => {
           
           <h1 className="text-xl font-bold text-charcoal mb-3">
             {id?.charAt(0).toUpperCase() + id?.slice(1)} Collection
+            {isUtensils && " - Our Specialty"}
           </h1>
           
           <p className="text-gray-600 mb-4 text-sm">
-            Browse our selection of {id} items for display purposes.
+            {isUtensils 
+              ? "Browse our premium selection of kitchen utensils designed for every cooking need."
+              : `Browse our selection of ${id} items for display purposes.`}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {categoryProducts.map((product) => (
               <ProductCard
                 key={product.id}

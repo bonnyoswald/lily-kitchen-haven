@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -9,13 +9,19 @@ import ProductCard from '@/components/ProductCard';
 
 const Shop = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [displayProducts, setDisplayProducts] = useState(products.filter(product => product.category === 'utensils'));
   
-  const filteredProducts = searchTerm 
-    ? products.filter(product => 
+  useEffect(() => {
+    if (searchTerm) {
+      setDisplayProducts(products.filter(product => 
         product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         product.category.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    : products;
+      ));
+    } else {
+      // Default to showing utensils when no search term is present
+      setDisplayProducts(products.filter(product => product.category === 'utensils'));
+    }
+  }, [searchTerm]);
     
   return (
     <div className="min-h-screen flex flex-col">
@@ -25,7 +31,7 @@ const Shop = () => {
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="flex flex-col md:flex-row justify-between items-center mb-4 gap-3">
             <h1 className="text-xl font-bold text-charcoal">
-              Product Display
+              Utensils Collection
             </h1>
             <div className="relative w-full md:w-auto">
               <input
@@ -40,12 +46,12 @@ const Shop = () => {
           </div>
 
           <p className="text-gray-600 mb-4 text-sm">
-            Browse our selection of premium kitchen items for display purposes.
+            Browse our selection of premium kitchen utensils for display purposes.
           </p>
 
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {filteredProducts.map((product) => (
+          {displayProducts.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {displayProducts.map((product) => (
                 <ProductCard
                   key={product.id}
                   id={product.id}
