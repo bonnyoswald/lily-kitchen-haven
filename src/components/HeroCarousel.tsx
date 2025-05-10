@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface Slide {
   image: string;
@@ -14,7 +15,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1970&q=80",
+    image: "https://images.unsplash.com/photo-1556911220-e15b29be8f8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1970&q=80",
     title: "Premium Kitchenware Collection",
     subtitle: "Elevate your cooking with quality products starting from KES 1,500",
     cta: "Shop Now",
@@ -36,8 +37,12 @@ const slides: Slide[] = [
   }
 ];
 
+// Fallback image
+const fallbackImage = "https://images.unsplash.com/photo-1556911220-e15b29be8f8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1970&q=80";
+
 const HeroCarousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
 
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
@@ -55,6 +60,17 @@ const HeroCarousel: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleImageLoad = (index: number) => {
+    setImagesLoaded(prev => ({...prev, [index]: true}));
+  };
+
+  const handleImageError = (index: number, e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = fallbackImage;
+    target.onerror = null; // Prevent infinite loop
+    handleImageLoad(index);
+  };
+
   return (
     <div className="relative h-[70vh] max-h-[600px] overflow-hidden">
       {slides.map((slide, index) => (
@@ -65,10 +81,15 @@ const HeroCarousel: React.FC = () => {
           }`}
         >
           <div className="absolute inset-0 hero-gradient"></div>
+          {!imagesLoaded[index] && (
+            <Skeleton className="w-full h-full absolute inset-0" />
+          )}
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover ${imagesLoaded[index] ? 'opacity-100' : 'opacity-0'}`}
+            onLoad={() => handleImageLoad(index)}
+            onError={(e) => handleImageError(index, e)}
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4">
             <h1 className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl mb-4 max-w-3xl">
@@ -120,4 +141,3 @@ const HeroCarousel: React.FC = () => {
 };
 
 export default HeroCarousel;
-

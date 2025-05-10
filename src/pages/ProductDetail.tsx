@@ -24,8 +24,8 @@ const ProductDetail = () => {
     });
   };
   
-  // Fallback image for when product images fail to load
-  const fallbackImage = "https://images.unsplash.com/photo-1590794058231-d548fb6f7913?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80";
+  // Improved fallback image for kitchen utensils
+  const fallbackImage = "https://images.unsplash.com/photo-1556911220-e15b29be8f8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80";
   
   // Convert price to KES (multiply by 85 as reduced conversion rate)
   const kesPrice = product ? Math.round(product.price * 85) : 0;
@@ -95,12 +95,13 @@ const ProductDetail = () => {
                         setImageLoading(true);
                         setCurrentImage(index);
                       }}
-                      className={`rounded border-2 ${currentImage === index ? 'border-primary' : 'border-transparent'}`}
+                      className={`relative rounded border-2 ${currentImage === index ? 'border-primary' : 'border-transparent'}`}
                     >
+                      <Skeleton className={`absolute inset-0 rounded ${currentImage === index ? 'bg-primary/10' : 'bg-gray-200'}`} />
                       <img 
                         src={img} 
                         alt={`${product.name} thumbnail ${index+1}`} 
-                        className="w-14 h-14 object-cover rounded"
+                        className="w-14 h-14 object-cover rounded relative z-10"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.src = fallbackImage;

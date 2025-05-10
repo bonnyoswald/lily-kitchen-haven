@@ -43,23 +43,25 @@ const ProductCard: React.FC<ProductCardProps> = ({
     });
   };
 
-  // Fallback image for when product images fail to load
-  const fallbackImage = "https://images.unsplash.com/photo-1590794058231-d548fb6f7913?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80";
+  // Improved fallback image for when product images fail to load
+  const fallbackImage = "https://images.unsplash.com/photo-1556911220-e15b29be8f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80";
   
   return (
     <div className={cn("bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300", className)}>
       <div className="relative">
         <Link to={`/shop/${id}`}>
-          <img 
-            src={image} 
-            alt={name} 
-            className="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = fallbackImage;
-              target.onerror = null; // Prevent infinite loop if fallback also fails
-            }}
-          />
+          <div className="w-full h-40 bg-gray-100">
+            <img 
+              src={image} 
+              alt={name} 
+              className="w-full h-40 object-cover hover:scale-105 transition-transform duration-300"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = fallbackImage;
+                target.onerror = null; // Prevent infinite loop if fallback also fails
+              }}
+            />
+          </div>
         </Link>
         {isNew && (
           <span className="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full">
